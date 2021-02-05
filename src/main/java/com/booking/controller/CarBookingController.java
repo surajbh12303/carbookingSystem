@@ -33,8 +33,8 @@ public class CarBookingController {
 	}
 
 	@PostMapping("carbookingdetails")
-	public List<Booking> getCarBookingDetails(@RequestBody BookingDto bookingDto) {
-		return this.bookingService.getCarBookingBetDates(bookingDto);
+	public ResponseEntity<List<Booking>> getCarBookingDetails(@RequestBody BookingDto bookingDto) {
+		return ResponseEntity.status(HttpStatus.OK).body(this.bookingService.getCarBookingBetDates(bookingDto));
 	}
 
 }
